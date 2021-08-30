@@ -1,13 +1,15 @@
 import styles from "./Header.module.css";
 
-import heroImage from "../../assets/meals.jpg";
+import heroImage from "../../assets/hero-image.jpg";
 
 const Header = (props) => {
   return (
     <>
       <header className={styles.header}>
         <h1>FoodApp</h1>
-        <button>Cart</button>
+        <div>
+          <button>Cart</button>
+        </div>
       </header>
       <div className={styles["hero-image"]}>
         <img src={heroImage} alt="A table full of food" />
