@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 
 import heroImage from "../../assets/hero-image.jpg";
+import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
   return (
@@ -8,7 +9,7 @@ const Header = (props) => {
       <header className={styles.header}>
         <h1>FoodApp</h1>
         <div>
-          <button>Cart</button>
+          <HeaderCartButton />
         </div>
       </header>
       <div className={styles["hero-image"]}>
