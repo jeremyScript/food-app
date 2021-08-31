@@ -1,7 +1,7 @@
 .menu {
   max-width: 60em;
   width: 90%;
-  margin: -2em auto;
+  margin: -4em auto;
   animation: menu-appears 1s ease-out forwards;
 }
 
