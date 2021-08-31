@@ -1,6 +1,8 @@
 import styles from "./Menu.module.css";
 import foodData from "../../assets/dummyData.js";
 
+import Card from "./../UI/Card";
+
 const Menu = () => {
   const foodList = foodData.map((food) => (
     <li>
@@ -20,9 +22,11 @@ const Menu = () => {
   ));
 
   return (
-    <section className={styles.menu}>
-      <ul className={styles["menu-list"]}>{foodList}</ul>
-    </section>
+    <main className={styles.menu}>
+      <Card>
+        <ul className={styles["menu-list"]}>{foodList}</ul>
+      </Card>
+    </main>
   );
 };
 

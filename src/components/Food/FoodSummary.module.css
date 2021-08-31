@@ -1,8 +1,6 @@
 .summary {
-  position: absolute;
-  top: 15em;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  top: -5em;
   text-align: center;
   background-color: #333;
   color: #fff;
@@ -10,6 +8,7 @@
   border-radius: 20px;
   padding: 1em;
   max-width: 30em;
+  margin: 0 auto;
 }
 
 .summary > h2 {
