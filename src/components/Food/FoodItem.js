@@ -1,14 +1,14 @@
 import styles from "./FoodItem.module.css";
 
 const FoodItem = (props) => {
-  const { title, description, price } = props;
+  const { name, description, price } = props;
 
   return (
     <li className={styles["food"]}>
       <div className={styles["food__info"]}>
-        <span className={styles.title}>{title}</span>
-        <span className={styles.description}>{description}</span>
-        <span className={styles.price}>${price.toFixed(2)}</span>
+        <h3 className={styles.name}>{name}</h3>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.price}>${price.toFixed(2)}</p>
       </div>
       <div className={styles["food__controls"]}>
         <div>

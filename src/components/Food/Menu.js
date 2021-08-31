@@ -5,13 +5,8 @@ import Card from "./../UI/Card";
 import FoodItem from "./FoodItem";
 
 const Menu = () => {
-  const foodList = foodData.map(({ title, description, price }) => (
-    <FoodItem
-      key={title + price}
-      title={title}
-      description={description}
-      price={price}
-    />
+  const foodList = foodData.map(({ name, description, price }) => (
+    <FoodItem key={name} name={name} description={description} price={price} />
   ));
 
   return (
