@@ -15,12 +15,12 @@
 
 .item-name {
   display: block;
+  font-size: 1.05rem;
   margin-bottom: 0.75em;
 }
 
 .item-price {
   font-size: 0.85rem;
-  color: rgba(214, 36, 51);
   margin-right: 1em;
 }
 
@@ -38,10 +38,47 @@
   border-radius: 4px;
   padding: 0.25em 1em;
   color: rgba(214, 36, 51, 0.9);
+  cursor: pointer;
 }
 
 .item-controls > button:hover,
 .item-controls > button:active {
-  box-shadow: 0 0 1px red;
+  box-shadow: 0 0 1px rgba(214, 36, 51, 0.9);
   font-weight: bold;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgba(214, 36, 51, 0.9);
+  padding: 0.5em 2em;
+  border-radius: 25px;
+  margin-left: 1em;
+}
+
+.actions button:hover,
+.actions button:active {
+  box-shadow: 0 0 5px rgba(214, 36, 51, 0.9);
+}
+
+.actions .button-alt {
+  color: rgba(214, 36, 51, 0.9);
+}
+
+.actions .button {
+  background-color: rgba(214, 36, 51, 0.9);
+  color: #fff;
 }

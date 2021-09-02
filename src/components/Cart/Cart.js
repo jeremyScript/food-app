@@ -27,7 +27,7 @@ const Cart = (props) => {
     <Modal>
       <Card className={styles.cart}>
         {cartItems}
-        <div>
+        <div className={styles.total}>
           <span>Total Amount: </span>
           <span>$25.99</span>
         </div>
