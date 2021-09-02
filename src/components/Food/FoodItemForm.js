@@ -9,10 +9,10 @@ const FoodItemForm = (props) => {
         input={{
           id: "quantity_" + props.id,
           type: "number",
-          min: 1,
-          max: 99,
-          step: 1,
-          defaultValue: 1,
+          min: "1",
+          max: "99",
+          step: "1",
+          defaultValue: "1",
         }}
         label="Qty:"
       />
