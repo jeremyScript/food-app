@@ -1,7 +1,7 @@
 .button {
   cursor: pointer;
   border: none;
-  background-color: #b64214;
+  background-color: rgba(48, 35, 52, 0.5);
   color: #fff;
   display: flex;
   justify-content: space-around;
@@ -12,7 +12,7 @@
 
 .button:hover,
 .button:active {
-  background-color: #753017;
+  background-color: rgba(48, 35, 52, 0.75);
 }
 
 .icon {
@@ -22,7 +22,7 @@
 }
 
 .badge {
-  background-color: #b94517;
+  background-color: #d62535;
   padding: 0.25em 0.5em;
   border-radius: 25px;
   margin-left: 0.5em;
@@ -31,5 +31,5 @@
 
 .button:hover .badge,
 .button:active .badge {
-  background-color: #92320c;
+  background-color: #d62535;
 }
