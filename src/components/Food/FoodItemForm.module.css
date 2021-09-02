@@ -4,8 +4,8 @@
 
 .form button {
   cursor: pointer;
-  background-color: #d62535;
-  border: #d62535;
+  background-color: rgba(214, 36, 51, 0.9);
+  border: rgba(214, 36, 51, 0.85);
   box-shadow: 1px 3px 10px #777;
   color: #fff;
   padding: 0.35em 1.5em;
@@ -15,6 +15,6 @@
 
 .form button:hover,
 .form button:active {
-  background-color: #c9a307;
-  border-color: #c9a307;
+  background-color: rgba(214, 36, 51);
+  border-color: rgba(214, 36, 51);
 }
