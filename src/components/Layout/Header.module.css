@@ -3,9 +3,7 @@
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   height: 4.5em;
   width: 100%;
   display: flex;
