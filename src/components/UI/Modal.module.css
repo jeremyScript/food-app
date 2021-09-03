@@ -9,9 +9,8 @@
 
 .modal-body {
   position: fixed;
-  left: 1.5em;
-  right: 1.5em;
-  min-width: 18em;
+  left: 5%;
+  width: 90%;
   top: 25vh;
   color: #000;
   height: 20em;
