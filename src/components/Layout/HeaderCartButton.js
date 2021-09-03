@@ -4,7 +4,7 @@ import CartIcon from "../Cart/CartIcon";
 const HeaderCartButton = (props) => {
   const onCartButtonClick = (event) => {
     event.preventDefault();
-    props.onCartOpen();
+    props.onShowCart();
   };
 
   return (

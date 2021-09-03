@@ -5,7 +5,7 @@ import styles from "./Cart.module.css";
 const Cart = (props) => {
   const handleCloseCartClick = (event) => {
     event.preventDefault();
-    props.onCartClose();
+    props.onHideCart();
   };
 
   const cartItems = (
