@@ -11,7 +11,7 @@ const Header = (props) => {
         <nav className={styles["navbar"]}>
           <h1>FoodApp</h1>
           <div>
-            <HeaderCartButton onShowCart={props.onShowCart} />
+            <HeaderCartButton onCartOpen={props.onCartOpen} />
           </div>
         </nav>
         <div className={styles["hero-image"]}>

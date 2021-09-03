@@ -7,15 +7,19 @@ import Cart from "./components/Cart/Cart";
 function App() {
   const [showCart, setShowCart] = useState(false);
 
-  const handleShowCart = (event) => {
+  const handleCartOpen = (event) => {
     setShowCart(true);
+  };
+
+  const handleCartClose = (event) => {
+    setShowCart(false);
   };
 
   return (
     <>
-      <Header onShowCart={handleShowCart} />
+      <Header onCartOpen={handleCartOpen} />
       <Menu />
-      {showCart && <Cart />}
+      {showCart && <Cart onCartClose={handleCartClose} />}
     </>
   );
 }

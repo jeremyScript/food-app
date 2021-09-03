@@ -3,6 +3,11 @@ import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 
 const Cart = (props) => {
+  const handleCloseCartClick = (event) => {
+    event.preventDefault();
+    props.onCartClose();
+  };
+
   const cartItems = (
     <ul className={styles["cart-items"]}>
       {[{ id: "c1", name: "Sushi", quantity: 2, price: 12.99 }].map((item) => (
@@ -24,7 +29,7 @@ const Cart = (props) => {
   );
 
   return (
-    <Modal>
+    <Modal onBackdropClick={handleCloseCartClick}>
       <Card className={styles.cart}>
         {cartItems}
         <div className={styles.total}>
@@ -32,7 +37,12 @@ const Cart = (props) => {
           <span>$25.99</span>
         </div>
         <div className={styles.actions}>
-          <button className={styles["button--alt"]}>Close</button>
+          <button
+            className={styles["button--alt"]}
+            onClick={handleCloseCartClick}
+          >
+            Close
+          </button>
           <button className={styles.button}>Order</button>
         </div>
       </Card>

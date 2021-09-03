@@ -2,13 +2,13 @@ import styles from "./HeaderCartButton.module.css";
 import CartIcon from "../Cart/CartIcon";
 
 const HeaderCartButton = (props) => {
-  const onCartClick = (event) => {
+  const onCartButtonClick = (event) => {
     event.preventDefault();
-    props.onShowCart();
+    props.onCartOpen();
   };
 
   return (
-    <button className={styles.button} onClick={onCartClick}>
+    <button className={styles.button} onClick={onCartButtonClick}>
       <span className={styles.icon}>
         <CartIcon />
       </span>
