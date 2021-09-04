@@ -1,12 +1,10 @@
 .input {
-  display: flex;
-  align-items: center;
   margin-top: 1em;
-  gap: 1em;
 }
 
 .input label {
   font-weight: bold;
+  margin-right: 1em;
 }
 
 .input input {
