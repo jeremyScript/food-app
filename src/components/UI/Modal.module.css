@@ -14,7 +14,6 @@
   top: 25vh;
   color: #000;
   height: 20em;
-  overflow: auto;
   animation: slide-down 300ms ease-out forwards;
 }
 

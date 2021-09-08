@@ -31,7 +31,11 @@ const Cart = (props) => {
   return (
     <Modal onBackdropClick={handleCloseCartClick}>
       <div className={styles.cart}>
-        {cartItems}
+        {hasItems ? (
+          cartItems
+        ) : (
+          <p className={styles.empty}>Your cart is empty :P</p>
+        )}
         <div className={styles.bottom}>
           <div className={styles.total}>
             <span>Total Amount: </span>
