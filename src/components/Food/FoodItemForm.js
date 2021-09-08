@@ -1,51 +1,58 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import styles from "./FoodItemForm.module.css";
 
 import Input from "../UI/Input";
 
 const FoodItemForm = (props) => {
+  const quantityInputRef = useRef();
+
   const [isInputValid, setIsInputValid] = useState(null);
 
-  const quantityInputRef = useRef();
+  useEffect(() => {
+    const messageTimer = setTimeout(() => setIsInputValid(null), 3000);
+    return () => clearTimeout(messageTimer);
+  }, [isInputValid]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const enteredQuantity = quantityInputRef.current.value;
+    const derivedQuantity = +enteredQuantity;
 
     if (
       enteredQuantity.trim().length === 0 ||
-      +enteredQuantity < 1 ||
-      +enteredQuantity > 99
+      derivedQuantity < 1 ||
+      derivedQuantity > 99
     ) {
       setIsInputValid(false);
       return;
     }
 
     setIsInputValid(true);
-    props.onAddClick(+enteredQuantity);
+    props.onAddClick(derivedQuantity);
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <Input
         ref={quantityInputRef}
+        label="Qty:"
         input={{
           id: props.id,
           type: "number",
           min: "1",
-          max: "99",
+          max: "5",
           step: "1",
           defaultValue: "1",
         }}
-        label="Qty:"
       />
       <button>+ Add</button>
       {isInputValid === false && (
-        <p className={styles["input-error"]}>Please enter a valid quantity</p>
+        <p className={styles["input-error"]}>Please enter a valid quantity.</p>
       )}
       {isInputValid === true && (
-        <p className={styles["input-success"]}>Added to the cart</p>
+        <p className={styles["input-success"]}>Added to the cart.</p>
       )}
     </form>
   );
