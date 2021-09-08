@@ -1,0 +1,39 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-name {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.75em;
+}
+
+.item-price {
+  font-size: 0.85rem;
+  margin-right: 1em;
+}
+
+.item-quantity {
+  font-size: 0.85rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 0.05em 0.5em 0.06em;
+}
+
+.item-controls > button {
+  margin-left: 0.5em;
+  background-color: transparent;
+  border: 1px solid rgba(214, 36, 51, 0.9);
+  border-radius: 4px;
+  padding: 0.25em 1em;
+  color: rgba(214, 36, 51, 0.9);
+  cursor: pointer;
+}
+
+.item-controls > button:hover,
+.item-controls > button:active {
+  box-shadow: 0 0 1px rgba(214, 36, 51, 0.9);
+  font-weight: bold;
+}
