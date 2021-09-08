@@ -23,7 +23,7 @@ const FoodItemForm = (props) => {
     }
 
     setIsInputValid(true);
-    props.onAddClick(enteredQuantity);
+    props.onAddClick(+enteredQuantity);
   };
 
   return (
