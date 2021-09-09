@@ -9,6 +9,7 @@ const CartItem = (props) => {
   const cartContext = useContext(CartContext);
 
   const handleIncrementItem = (event) => {
+    event.preventDefault();
     const item = {
       id,
       name,
@@ -16,6 +17,11 @@ const CartItem = (props) => {
       quantity: 1,
     };
     cartContext.addItem(item);
+  };
+
+  const handleDecrementItem = (event) => {
+    event.preventDefault();
+    cartContext.removeItem(id);
   };
 
   return (
@@ -28,7 +34,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles["item-controls"]}>
-        <button>-</button>
+        <button onClick={handleDecrementItem}>-</button>
         <button onClick={handleIncrementItem}>+</button>
       </div>
     </li>
