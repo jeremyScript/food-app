@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../../store/cart-context";
 
 import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 
 const Cart = (props) => {
+  const [showCheckout, setShowCheckout] = useState(false);
   const cartContext = useContext(CartContext);
 
   const hasItems = cartContext.items.length > 0;
@@ -15,9 +17,13 @@ const Cart = (props) => {
     props.onHideCart();
   };
 
+  const handleOrderClick = (event) => {
+    event.preventDefault();
+    setShowCheckout(true);
+  };
+
   const cartItems = (
     <ul className={styles["cart-items"]}>
-      {console.log("cartItems", cartContext.items)}
       {cartContext.items.map((item) => (
         <CartItem
           key={item.id}
@@ -43,6 +49,7 @@ const Cart = (props) => {
             <span>Total Amount: </span>
             <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
           </div>
+          {showCheckout && <Checkout />}
           <div className={styles.actions}>
             <button
               className={styles["button--alt"]}
@@ -50,7 +57,11 @@ const Cart = (props) => {
             >
               Close
             </button>
-            {hasItems && <button className={styles.button}>Order</button>}
+            {hasItems && (
+              <button className={styles.button} onClick={handleOrderClick}>
+                Order
+              </button>
+            )}
           </div>
         </div>
       </div>
