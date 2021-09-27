@@ -6,12 +6,12 @@ import FoodItem from "./FoodItem";
 
 const Menu = () => {
   const [menuData, setMenuData] = useState([]);
-  const [error, setError] = useState(null);
+  const [httpError, setHttpError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMenuData = async () => {
     setIsLoading(true);
-    setError(null);
+    setHttpError(null);
 
     try {
       const response = await fetch(
@@ -32,10 +32,11 @@ const Menu = () => {
       }));
 
       setMenuData(transformedData);
-    } catch (error) {
-      setError(error);
+      setIsLoading(false);
+    } catch (httpError) {
+      setHttpError(httpError);
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -59,9 +60,11 @@ const Menu = () => {
       <Card>
         <ul className={styles["menu-list"]}>
           {isLoading && <li className={styles.message}>Loading...</li>}
-          {error && <li className={styles.message}>Something went wrong...</li>}
-          {!error && foodList}
-          {!error && !isLoading && !isThereData && (
+          {httpError && (
+            <li className={styles.message}>Something went wrong...</li>
+          )}
+          {!httpError && foodList}
+          {!httpError && !isLoading && !isThereData && (
             <li className={styles.message}>No item found...</li>
           )}
         </ul>
