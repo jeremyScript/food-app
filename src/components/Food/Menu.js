@@ -12,7 +12,7 @@ const Menu = () => {
   const fetchMenuData = async () => {
     try {
       const response = await fetch(
-        "https://food-app-6dd5d-default-rtdb.firebaseio.com/menu"
+        "https://food-app-6dd5d-default-rtdb.firebaseio.com/menu.json"
       );
 
       if (!response.ok) {
@@ -20,8 +20,17 @@ const Menu = () => {
       }
 
       const data = await response.json();
-      setMenuData(data);
+
+      const transformedData = Object.keys(data).map((id) => ({
+        id,
+        name: data[id].name,
+        description: data[id].description,
+        price: data[id].price,
+      }));
+
+      setMenuData(transformedData);
     } catch (error) {
+      console.log("error", error);
       setDidErrorOccur(true);
     }
   };
