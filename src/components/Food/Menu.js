@@ -42,7 +42,7 @@ const Menu = () => {
     fetchMenuData();
   }, []);
 
-  const foodList = [].map(({ id, name, description, price }) => (
+  const foodList = menuData.map(({ id, name, description, price }) => (
     <FoodItem
       key={name}
       id={id}
@@ -61,7 +61,7 @@ const Menu = () => {
           {isLoading && <li className={styles.message}>Loading...</li>}
           {error && <li className={styles.message}>Something went wrong...</li>}
           {!error && foodList}
-          {!error && !isThereData && (
+          {!error && !isLoading && !isThereData && (
             <li className={styles.message}>No item found...</li>
           )}
         </ul>
