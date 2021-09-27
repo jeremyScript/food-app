@@ -11,6 +11,10 @@
   padding: 0;
 }
 
+.message {
+  text-align: center;
+}
+
 @keyframes menu-appears {
   from {
     opacity: 0;

@@ -6,10 +6,13 @@ import FoodItem from "./FoodItem";
 
 const Menu = () => {
   const [menuData, setMenuData] = useState([]);
-  const [didErrorOccur, setDidErrorOccur] = useState(false);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMenuData = async () => {
+    setIsLoading(true);
+    setError(null);
+
     try {
       const response = await fetch(
         "https://food-app-6dd5d-default-rtdb.firebaseio.com/menu.json"
@@ -30,16 +33,16 @@ const Menu = () => {
 
       setMenuData(transformedData);
     } catch (error) {
-      console.log("error", error);
-      setDidErrorOccur(true);
+      setError(error);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchMenuData();
   }, []);
 
-  const foodList = menuData.map(({ id, name, description, price }) => (
+  const foodList = [].map(({ id, name, description, price }) => (
     <FoodItem
       key={name}
       id={id}
@@ -49,10 +52,19 @@ const Menu = () => {
     />
   ));
 
+  const isThereData = foodList.length > 0;
+
   return (
     <main className={styles.menu}>
       <Card>
-        <ul className={styles["menu-list"]}>{foodList}</ul>
+        <ul className={styles["menu-list"]}>
+          {isLoading && <li className={styles.message}>Loading...</li>}
+          {error && <li className={styles.message}>Something went wrong...</li>}
+          {!error && foodList}
+          {!error && !isThereData && (
+            <li className={styles.message}>No item found...</li>
+          )}
+        </ul>
       </Card>
     </main>
   );
