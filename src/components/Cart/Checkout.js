@@ -56,10 +56,16 @@ const Checkout = (props) => {
         </div>
       </div>
       <div className={styles.actions}>
-        <button type="button" onClick={props.onHideCart}>
+        <button
+          className={styles["button--cancel"]}
+          type="button"
+          onClick={props.onHideCart}
+        >
           Cancel
         </button>
-        <button type="submit">Submit Order</button>
+        <button className={styles["button--submit"]} type="submit">
+          Submit Order
+        </button>
       </div>
     </form>
   );

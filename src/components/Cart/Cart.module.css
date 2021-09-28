@@ -54,11 +54,11 @@
   box-shadow: 0 0 5px rgba(214, 36, 51, 0.9);
 }
 
-.actions .button-alt {
+.actions .button--close {
   color: rgba(214, 36, 51, 0.9);
 }
 
-.actions .button {
+.actions .button--order {
   background-color: rgba(214, 36, 51, 0.9);
   color: #fff;
 }

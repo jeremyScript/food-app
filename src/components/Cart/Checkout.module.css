@@ -45,8 +45,31 @@
 }
 
 .actions {
-  margin-top: 1em;
+  margin-top: auto;
   margin-left: auto;
+}
+
+.actions button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgba(214, 36, 51, 0.9);
+  padding: 0.5em 2em;
+  border-radius: 25px;
+  margin-left: 1em;
+}
+
+.actions button:hover,
+.actions button:active {
+  box-shadow: 0 0 5px rgba(214, 36, 51, 0.9);
+}
+
+.actions .button--cancel {
+  color: rgba(214, 36, 51, 0.9);
+}
+
+.actions .button--submit {
+  background-color: rgba(214, 36, 51, 0.9);
+  color: #fff;
 }
 
 button + button {

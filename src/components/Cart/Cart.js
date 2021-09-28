@@ -38,11 +38,14 @@ const Cart = (props) => {
 
   const cartActions = (
     <div className={styles.actions}>
-      <button className={styles["button--alt"]} onClick={handleCloseCartClick}>
+      <button
+        className={styles["button--close"]}
+        onClick={handleCloseCartClick}
+      >
         Close
       </button>
       {hasItems && (
-        <button className={styles.button} onClick={handleOrderClick}>
+        <button className={styles["button--order"]} onClick={handleOrderClick}>
           Order
         </button>
       )}
