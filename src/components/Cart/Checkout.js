@@ -1,8 +1,12 @@
 import styles from "./Checkout.module.css";
 
 const Checkout = (props) => {
+  const handleOrderSubmit = (event) => {
+    event.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={handleOrderSubmit}>
       <div className={styles.control}>
         <label htmlFor="first-name">First name</label>
         <input type="text" id="first-name" />
@@ -31,8 +35,12 @@ const Checkout = (props) => {
         <label htmlFor="phone">Contact phone</label>
         <input type="text" id="phone" />
       </div>
-      <button type="button">Cancel</button>
-      <button type="submit">Confirm</button>
+      <div className={styles.actions}>
+        <button type="button" onClick={props.onHideCart}>
+          Cancel
+        </button>
+        <button type="submit">Submit Order</button>
+      </div>
     </form>
   );
 };

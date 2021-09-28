@@ -62,7 +62,7 @@ const Cart = (props) => {
             <span>Total Amount: </span>
             <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
           </div>
-          {showCheckout && <Checkout />}
+          {showCheckout && <Checkout onHideCart={handleCloseCartClick} />}
           {!showCheckout && cartActions}
         </div>
       </div>

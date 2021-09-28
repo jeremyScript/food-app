@@ -29,8 +29,6 @@ const cartReducer = (state, action) => {
       updatedItems = [...state.items, { id, name, price, quantity }];
     }
 
-    console.log("updatedItems", updatedItems);
-
     const updatedTotalQuantity = state.totalQuantity + quantity;
     const updatedTotalAmount = state.totalAmount + price * quantity;
 
@@ -42,7 +40,6 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "REMOVE_ITEM") {
-    console.log("remove", state.items);
     const id = action.payload;
 
     const existingItemIndex = state.items.findIndex((item) => item.id === id);
