@@ -33,13 +33,11 @@
   align-items: center;
   font-weight: bold;
   font-size: 1.25rem;
-  padding: 0 1em;
 }
 
 .actions {
   margin-top: 1em;
   text-align: right;
-  padding-right: 1em;
 }
 
 .actions button {
