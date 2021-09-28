@@ -2,28 +2,29 @@
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
-  padding: 1em 0 0;
 }
 
-.empty {
+.cart-empty {
+  padding: 2em 2em 1em;
   text-align: center;
-  margin-bottom: 2em;
 }
 
-.cart-items {
+.cart-top {
   margin: 0;
   padding: 0 1.5em 1em;
   list-style-type: none;
   font-weight: bold;
-  max-height: 25em;
+  max-height: 15em;
   overflow: auto;
 }
 
-.bottom {
-  padding: 1em 1.5em;
+.cart-bottom {
+  padding: 1.5em;
   background-color: rgb(252, 210, 210);
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
+  max-height: 15em;
+  overflow: auto;
 }
 
 .total {
@@ -32,10 +33,11 @@
   align-items: center;
   font-weight: bold;
   font-size: 1.25rem;
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .actions {
+  margin-top: 1em;
   text-align: right;
   padding-right: 1em;
 }

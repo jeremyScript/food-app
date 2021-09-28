@@ -23,7 +23,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={styles["cart-items"]}>
+    <ul className={styles["cart-top"]}>
       {cartContext.items.map((item) => (
         <CartItem
           key={item.id}
@@ -55,9 +55,9 @@ const Cart = (props) => {
         {hasItems ? (
           cartItems
         ) : (
-          <p className={styles.empty}>Your cart is empty</p>
+          <p className={styles["cart-empty"]}>Your cart is empty</p>
         )}
-        <div className={styles.bottom}>
+        <div className={styles["cart-bottom"]}>
           <div className={styles.total}>
             <span>Total Amount: </span>
             <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
