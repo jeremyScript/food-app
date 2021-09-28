@@ -31,6 +31,8 @@ const Checkout = (props) => {
         <label htmlFor="phone">Contact phone</label>
         <input type="text" id="phone" />
       </div>
+      <button type="button">Cancel</button>
+      <button type="submit">Confirm</button>
     </form>
   );
 };

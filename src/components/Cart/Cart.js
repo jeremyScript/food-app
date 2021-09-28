@@ -36,6 +36,19 @@ const Cart = (props) => {
     </ul>
   );
 
+  const cartActions = (
+    <div className={styles.actions}>
+      <button className={styles["button--alt"]} onClick={handleCloseCartClick}>
+        Close
+      </button>
+      {hasItems && (
+        <button className={styles.button} onClick={handleOrderClick}>
+          Order
+        </button>
+      )}
+    </div>
+  );
+
   return (
     <Modal onBackdropClick={handleCloseCartClick}>
       <div className={styles.cart}>
@@ -50,19 +63,7 @@ const Cart = (props) => {
             <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
           </div>
           {showCheckout && <Checkout />}
-          <div className={styles.actions}>
-            <button
-              className={styles["button--alt"]}
-              onClick={handleCloseCartClick}
-            >
-              Close
-            </button>
-            {hasItems && (
-              <button className={styles.button} onClick={handleOrderClick}>
-                Order
-              </button>
-            )}
-          </div>
+          {!showCheckout && cartActions}
         </div>
       </div>
     </Modal>
