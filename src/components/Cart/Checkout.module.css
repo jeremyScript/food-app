@@ -1,26 +1,24 @@
 .delivery-form {
   margin-top: 1em;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 1fr;
-}
-
-.input-group {
-  grid-row: span 1;
-  grid-column: span 1;
-  display: inline-flex;
-}
-
-.input-group + .input-group {
-  margin-top: 0.5em;
+  grid-template-columns: [left-start] 1fr [left-end right-start] 1fr [right-end];
+  grid-auto-rows: auto;
+  grid-gap: 1em 0;
 }
 
 .control {
-  flex: 50%;
+  grid-column: left-start / right-end;
+  grid-row: span 1;
 }
 
-.control + .control {
-  margin-left: 0.5em;
+@media (min-width: 27em) {
+  .left {
+    grid-column: left;
+  }
+
+  .right {
+    grid-column: right;
+  }
 }
 
 .control label {
@@ -45,8 +43,10 @@
 }
 
 .actions {
-  margin-top: auto;
-  margin-left: auto;
+  grid-column: left / right;
+  grid-row: span 1;
+  margin-top: 1em;
+  text-align: center;
 }
 
 .actions button {
@@ -55,7 +55,7 @@
   border: 1px solid rgba(214, 36, 51, 0.9);
   padding: 0.5em 2em;
   border-radius: 25px;
-  margin-left: 1em;
+  width: 100%;
 }
 
 .actions button:hover,
@@ -73,5 +73,20 @@
 }
 
 button + button {
-  margin-left: 0.5em;
+  margin-top: 1em;
+}
+
+@media (min-width: 28em) {
+  .actions {
+    margin-top: 0;
+    text-align: right;
+  }
+
+  .actions button {
+    width: auto;
+  }
+
+  button + button {
+    margin-left: 1em;
+  }
 }

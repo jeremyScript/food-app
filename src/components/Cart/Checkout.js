@@ -7,53 +7,41 @@ const Checkout = (props) => {
 
   return (
     <form className={styles["delivery-form"]} onSubmit={handleOrderSubmit}>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="first-name">First name</label>
-          <input type="text" id="first-name" />
-        </div>
-        <div className={styles.control}>
-          <label htmlFor="last-name">Last name</label>
-          <input type="text" id="last-name" />
-        </div>
+      <div className={`${styles.control} ${styles.left}`}>
+        <label htmlFor="first-name">First name</label>
+        <input type="text" id="first-name" />
       </div>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="address-1">Address line 1</label>
-          <input type="text" id="address-1" />
-        </div>
+      <div className={`${styles.control} ${styles.right}`}>
+        <label htmlFor="last-name">Last name</label>
+        <input type="text" id="last-name" />
       </div>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="address-2">Address line 2</label>
-          <input type="text" id="address-2" />
-        </div>
+      <div className={styles.control}>
+        <label htmlFor="address-1">Address line 1</label>
+        <input type="text" id="address-1" />
       </div>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="postal-code">Postal code</label>
-          <input type="text" id="postal-code" />
-        </div>
-        <div className={styles.control}>
-          <label htmlFor="city">City</label>
-          <input type="text" id="city" />
-        </div>
+      <div className={styles.control}>
+        <label htmlFor="address-2">Address line 2</label>
+        <input type="text" id="address-2" />
       </div>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="country">Country</label>
-          <input type="text" id="country" />
-        </div>
-        <div className={styles.control}>
-          <label htmlFor="state">State</label>
-          <input type="text" id="state" />
-        </div>
+      <div className={`${styles.control} ${styles.left}`}>
+        <label htmlFor="postal-code">Postal code</label>
+        <input type="text" id="postal-code" />
       </div>
-      <div className={styles["input-group"]}>
-        <div className={styles.control}>
-          <label htmlFor="phone">Contact phone</label>
-          <input type="text" id="phone" />
-        </div>
+      <div className={`${styles.control} ${styles.right}`}>
+        <label htmlFor="city">City</label>
+        <input type="text" id="city" />
+      </div>
+      <div className={`${styles.control} ${styles.left}`}>
+        <label htmlFor="country">Country</label>
+        <input type="text" id="country" />
+      </div>
+      <div className={`${styles.control} ${styles.right}`}>
+        <label htmlFor="state">State</label>
+        <input type="text" id="state" />
+      </div>
+      <div className={styles.control}>
+        <label htmlFor="phone">Contact phone</label>
+        <input type="text" id="phone" />
       </div>
       <div className={styles.actions}>
         <button
