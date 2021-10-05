@@ -1,5 +1,7 @@
 import styles from "./Checkout.module.css";
 
+import Input from "../UI/Input";
+
 const Checkout = (props) => {
   const handleOrderSubmit = (event) => {
     event.preventDefault();
@@ -7,14 +9,16 @@ const Checkout = (props) => {
 
   return (
     <form className={styles["delivery-form"]} onSubmit={handleOrderSubmit}>
-      <div className={`${styles.control} ${styles.left}`}>
-        <label htmlFor="first-name">First name</label>
-        <input type="text" id="first-name" />
-      </div>
-      <div className={`${styles.control} ${styles.right}`}>
-        <label htmlFor="last-name">Last name</label>
-        <input type="text" id="last-name" />
-      </div>
+      <Input
+        className={`${styles.control} ${styles.left}`}
+        label="First name"
+        input={{ id: "first-name", type: "text" }}
+      />
+      <Input
+        className={`${styles.control} ${styles.right}`}
+        label="Last name"
+        input={{ id: "last-name", type: "text" }}
+      />
       <div className={styles.control}>
         <label htmlFor="address-1">Address line 1</label>
         <input type="text" id="address-1" />

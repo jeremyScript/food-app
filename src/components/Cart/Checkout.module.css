@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: [left-start] 1fr [left-end right-start] 1fr [right-end];
   grid-auto-rows: auto;
-  grid-gap: 1em 0;
+  grid-gap: 1em 1em;
 }
 
 .control {
