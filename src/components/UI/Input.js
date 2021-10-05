@@ -7,6 +7,9 @@ const Input = React.forwardRef((props, ref) => {
     <div className={`${styles.input} ${props.className}`}>
       <label htmlFor={props.input.id}>{props.label}</label>
       <input ref={ref} {...props.input} />
+      {props.errorMessage && !props.isValid && (
+        <span className={styles.error}>{props.errorMessage}</span>
+      )}
     </div>
   );
 });
