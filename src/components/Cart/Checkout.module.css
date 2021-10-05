@@ -9,6 +9,7 @@
 .control {
   grid-column: left-start / right-end;
   grid-row: span 1;
+  margin-top: 0;
 }
 
 @media (min-width: 27em) {
@@ -25,6 +26,7 @@
   display: block;
   color: #333;
   font-size: 0.9rem;
+  font-weight: initial;
 }
 
 .control input {
