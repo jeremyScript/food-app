@@ -10,7 +10,6 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
-    console.log("add", state.items);
     const { id, name, price, quantity } = action.payload;
 
     const existingItemIndex = state.items.findIndex((item) => item.id === id);
