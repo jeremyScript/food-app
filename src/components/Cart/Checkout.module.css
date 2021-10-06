@@ -1,18 +1,21 @@
 .delivery-form {
   margin-top: 1em;
   display: grid;
-  grid-template-columns: [left-start] 1fr [left-end right-start] 1fr [right-end];
+  grid-template-columns:
+    [left-start] 1fr
+    [left-end right-start] 1fr
+    [right-end];
   grid-auto-rows: auto;
   grid-gap: 1em 1em;
 }
 
-.control {
+div {
   grid-column: left-start / right-end;
   grid-row: span 1;
   margin-top: 0;
 }
 
-@media (min-width: 27em) {
+@media (min-width: 28em) {
   .left {
     grid-column: left;
   }
@@ -22,14 +25,14 @@
   }
 }
 
-.control label {
+label {
   display: block;
   color: #333;
   font-size: 0.9rem;
   font-weight: initial;
 }
 
-.control input {
+input {
   display: block;
   width: 100%;
   margin-top: 0.25em;
@@ -40,7 +43,7 @@
   outline: none;
 }
 
-.control input:focus {
+input:focus {
   border: 1px solid #aaa;
 }
 

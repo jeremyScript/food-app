@@ -1,28 +1,20 @@
 import styles from "./Checkout.module.css";
 
 import { checkoutForm } from "../../utils/formConfig";
-import Input from "../UI/Input";
+import useForm from "../../hooks/useForm";
 
 const Checkout = (props) => {
   const handleOrderSubmit = (event) => {
     event.preventDefault();
+    if (!isFormValid) return;
+    console.log("submitted");
   };
 
-  const inputFields = Object.values(checkoutForm).map(({ props }) => (
-    <Input
-      key={props.label}
-      className={`${styles.control} ${styles[props.className]}`}
-      label={props.label}
-      input={{
-        id: props.input.id,
-        type: props.input.type,
-      }}
-    />
-  ));
+  const [renderFormInputs, isFormValid] = useForm(checkoutForm);
 
   return (
     <form className={styles["delivery-form"]} onSubmit={handleOrderSubmit}>
-      {inputFields}
+      {renderFormInputs(styles.control)}
       <div className={styles.actions}>
         <button
           className={styles["button--cancel"]}
