@@ -1,4 +1,5 @@
 import styles from "../components/Cart/Checkout.module.css";
+import * as validationRules from "./inputValidationRules";
 
 export const checkoutForm = {
   firstName: {
@@ -15,7 +16,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("First name")],
   },
   lastName: {
     inputName: "lastName",
@@ -31,7 +32,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("Last name")],
   },
   addressLine1: {
     inputName: "addressLine1",
@@ -47,7 +48,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("Address")],
   },
   addressLine2: {
     inputName: "addressLine2",
@@ -79,7 +80,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("City")],
   },
   state: {
     inputName: "state",
@@ -95,7 +96,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("State")],
   },
   zipCode: {
     inputName: "zipCode",
@@ -111,7 +112,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [validationRules.createRequiredRule("Zip code")],
   },
   phone: {
     inputName: "phone",
@@ -127,7 +128,10 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [
+      validationRules.createRequiredRule("Phone number"),
+      validationRules.createPhoneRule("Phone number"),
+    ],
   },
   email: {
     inputName: "email",
@@ -143,6 +147,9 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validationRules: [
+      validationRules.createRequiredRule("Email"),
+      validationRules.createEmailRule("Email"),
+    ],
   },
 };

@@ -1,6 +1,6 @@
 export const createRequiredRule = (inputName) => {
   return {
-    errorMessage: `${inputName} required`,
+    errorMessage: `${inputName} is required`,
     validate: (inputValue) => inputValue.trim().length > 0,
   };
 };
