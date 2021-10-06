@@ -19,5 +19,26 @@ export const createMaxLengthRule = (inputName, maxChars) => {
   };
 };
 
-export const createMatchRule = (inputName, value1, value2) =>
-  value1 !== value2 ? `${inputName} does not match` : null;
+export const createMatchRule = (inputName) => {
+  return {
+    errorMessage: `${inputName} does not match`,
+    validate: (inputValue, formObj) =>
+      inputValue === formObj.password.props.input.value,
+  };
+};
+
+export const createPhoneRule = (inputName) => {
+  const regex = /^\d{10,}/;
+  return {
+    errorMessage: `${inputName} entered is not valid`,
+    validate: (inputValue) => regex.test(inputValue),
+  };
+};
+
+export const createEmailRule = (inputName) => {
+  const regex = /^\S+@\S+\.\S+$/;
+  return {
+    errorMessage: `${inputName} entered is not valid`,
+    validate: (inputValue) => regex.test(inputValue),
+  };
+};
