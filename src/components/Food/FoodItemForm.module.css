@@ -21,11 +21,15 @@
 }
 
 .input-error {
+  position: absolute;
+  right: 0;
   color: red;
   font-size: 0.75rem;
 }
 
 .input-success {
+  position: absolute;
+  right: 0;
   color: #000;
   font-size: 0.75rem;
 }
