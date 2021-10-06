@@ -10,6 +10,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   lastName: {
@@ -23,6 +25,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   addressLine1: {
@@ -35,6 +39,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   addressLine2: {
@@ -47,6 +53,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   city: {
@@ -60,6 +68,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   state: {
@@ -73,6 +83,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   zipCode: {
@@ -86,6 +98,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   phone: {
@@ -99,6 +113,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
   email: {
@@ -112,6 +128,8 @@ export const checkoutForm = {
         value: "",
       },
     },
+    isValid: null,
+    isTouched: false,
     validationRules: [],
   },
 };
