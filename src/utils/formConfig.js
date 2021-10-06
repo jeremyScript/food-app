@@ -1,8 +1,10 @@
+import styles from "../components/Cart/Checkout.module.css";
+
 export const checkoutForm = {
   firstName: {
     inputName: "firstName",
     props: {
-      className: "left",
+      className: styles.left,
       label: "First name",
       input: {
         id: "first-name",
@@ -10,6 +12,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -17,7 +20,7 @@ export const checkoutForm = {
   lastName: {
     inputName: "lastName",
     props: {
-      className: "right",
+      className: styles.right,
       label: "Last name",
       input: {
         id: "last-name",
@@ -25,6 +28,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -32,6 +36,7 @@ export const checkoutForm = {
   addressLine1: {
     inputName: "addressLine1",
     props: {
+      className: "",
       label: "Address line 1",
       input: {
         id: "address-line-1",
@@ -39,6 +44,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -46,6 +52,7 @@ export const checkoutForm = {
   addressLine2: {
     inputName: "addressLine2",
     props: {
+      className: "",
       label: "Address line 2",
       input: {
         id: "address-line-2",
@@ -53,6 +60,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -60,7 +68,7 @@ export const checkoutForm = {
   city: {
     inputName: "city",
     props: {
-      className: "left",
+      className: styles.left,
       label: "City",
       input: {
         id: "city",
@@ -68,6 +76,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -75,7 +84,7 @@ export const checkoutForm = {
   state: {
     inputName: "state",
     props: {
-      className: "right",
+      className: styles.right,
       label: "State",
       input: {
         id: "state",
@@ -83,6 +92,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -90,7 +100,7 @@ export const checkoutForm = {
   zipCode: {
     inputName: "zipCode",
     props: {
-      className: "left",
+      className: styles.left,
       label: "Zip code",
       input: {
         id: "zip-code",
@@ -98,6 +108,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -105,7 +116,7 @@ export const checkoutForm = {
   phone: {
     inputName: "phone",
     props: {
-      className: "left",
+      className: styles.left,
       label: "Phone",
       input: {
         id: "phone",
@@ -113,6 +124,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
@@ -120,7 +132,7 @@ export const checkoutForm = {
   email: {
     inputName: "email",
     props: {
-      className: "right",
+      className: styles.right,
       label: "Email",
       input: {
         id: "email",
@@ -128,6 +140,7 @@ export const checkoutForm = {
         value: "",
       },
     },
+    errorMessage: "",
     isValid: null,
     isTouched: false,
     validationRules: [],
