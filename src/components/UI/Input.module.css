@@ -1,4 +1,5 @@
 .input {
+  position: relative;
   margin-top: 1em;
 }
 
@@ -13,4 +14,10 @@ input {
   border: 1px solid #ccc;
   padding: 0.5em;
   outline: none;
+}
+
+.error {
+  position: absolute;
+  font-size: 0.75rem;
+  color: red;
 }
