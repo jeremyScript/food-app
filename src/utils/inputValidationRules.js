@@ -1,15 +1,23 @@
-export const requiredRule = (inputName, inputValue) =>
-  inputValue.trim().length === 0 ? `${inputName} required` : null;
+export const createRequiredRule = (inputName) => {
+  return {
+    errorMessage: `${inputName} required`,
+    validate: (inputValue) => inputValue.trim().length > 0,
+  };
+};
 
-export const minLengthRule = (inputName, inputValue, minChars) =>
-  inputValue.length < minChars
-    ? `${inputName} should be at least ${minChars} characters long`
-    : null;
+export const createMinLengthRule = (inputName, minChars) => {
+  return {
+    errorMessage: `${inputName} should be at least ${minChars} characters long`,
+    validate: (inputValue) => inputValue.length > minChars,
+  };
+};
 
-export const maxLengthRule = (inputName, inputValue, maxChars) =>
-  inputValue.length > maxChars
-    ? `${inputName} cannot be more than ${maxChars} characters long`
-    : null;
+export const createMaxLengthRule = (inputName, maxChars) => {
+  return {
+    errorMessage: `${inputName} cannot be more than ${maxChars} characters long`,
+    validate: (inputValue) => inputValue.length <= maxChars,
+  };
+};
 
-export const matchRule = (inputName, value1, value2) =>
+export const createMatchRule = (inputName, value1, value2) =>
   value1 !== value2 ? `${inputName} does not match` : null;
