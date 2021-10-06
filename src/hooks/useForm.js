@@ -25,29 +25,28 @@ const useForm = (formObject) => {
     setFormState({ ...formState, [name]: inputObj });
   };
 
-  const renderFormInputs = () =>
-    Object.values(formState).map(
-      ({ inputName, isValid, isTouched, errorMessage, props }) => {
-        return (
-          <Input
-            key={props.label}
-            className={`${props.className}`}
-            label={props.label}
-            isTouched={isTouched}
-            isValid={isValid}
-            errorMessage={errorMessage}
-            input={{
-              id: props.input.id,
-              name: inputName,
-              type: props.input.type,
-              value: formState[inputName].props.input.value,
-              onChange: handleChange,
-              onBlur: handleBlur,
-            }}
-          />
-        );
-      }
+  const renderFormInputs = () => {
+    return Object.values(formState).map(
+      ({ inputName, isValid, isTouched, errorMessage, props }) => (
+        <Input
+          key={props.label}
+          className={`${props.className}`}
+          label={props.label}
+          isTouched={isTouched}
+          isValid={isValid}
+          errorMessage={errorMessage}
+          input={{
+            id: props.input.id,
+            name: inputName,
+            type: props.input.type,
+            value: formState[inputName].props.input.value,
+            onChange: handleChange,
+            onBlur: handleBlur,
+          }}
+        />
+      )
     );
+  };
 
   const validateInput = (inputObj) => {
     for (let rule of inputObj.validationRules) {
@@ -64,8 +63,6 @@ const useForm = (formObject) => {
   const isFormValid = Object.values(formState).every(
     (input) => input.isValid === true
   );
-
-  console.log("formState", formState.firstName.props.input.value);
 
   return [renderFormInputs, isFormValid];
 };
