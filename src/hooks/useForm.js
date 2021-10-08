@@ -12,8 +12,7 @@ const useForm = (formObj) => {
       const inputObj = { ...prevState[name] };
       inputObj.props.input.value = value;
       inputObj.isTouched = true;
-      validateInput(inputObj);
-      return { ...formState, [name]: inputObj };
+      return { ...formState, [name]: validateInput(inputObj) };
     });
   };
 
@@ -21,8 +20,7 @@ const useForm = (formObj) => {
     const { name } = event.target;
     const inputObj = { ...formState[name] };
     inputObj.isTouched = true;
-    validateInput(inputObj);
-    setFormState({ ...formState, [name]: inputObj });
+    setFormState({ ...formState, [name]: validateInput(inputObj) });
   };
 
   const renderFormInputs = () => {
@@ -65,15 +63,32 @@ const useForm = (formObj) => {
   };
 
   const validateInput = (inputObj) => {
+    const inputObjCopy = { ...inputObj };
     for (let rule of inputObj.validation) {
       if (!rule.validate(inputObj.props.input.value)) {
-        inputObj.isValid = false;
-        inputObj.errorMessage = rule.errorMessage;
-        return;
+        inputObjCopy.isValid = false;
+        inputObjCopy.errorMessage = rule.errorMessage;
+        return inputObjCopy;
       }
     }
-    inputObj.isValid = true;
-    inputObj.errorMessage = "";
+    inputObjCopy.isValid = true;
+    inputObjCopy.errorMessage = "";
+    return inputObjCopy;
+  };
+
+  const validateAll = () => {
+    setFormState((prevState) => {
+      const stateCopy = { ...prevState };
+      Object.values(stateCopy).forEach((inputObj) => {
+        if (inputObj.isValid === null) {
+          stateCopy[inputObj.inputName] = {
+            ...validateInput(inputObj),
+            isTouched: true,
+          };
+        }
+      });
+      return stateCopy;
+    });
   };
 
   const isFormValid = Object.values(formState).every(
@@ -83,12 +98,12 @@ const useForm = (formObj) => {
   const formData = {};
 
   if (isFormValid) {
-    Object.values(formState).forEach((input) => {
-      formData[input.inputName] = input.props.input.value;
+    Object.values(formState).forEach((inputObj) => {
+      formData[inputObj.inputName] = inputObj.props.input.value;
     });
   }
 
-  return [renderFormInputs, isFormValid, formData];
+  return [renderFormInputs, isFormValid, validateAll, formData];
 };
 
 export default useForm;
