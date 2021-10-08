@@ -1,11 +1,10 @@
-import styles from "../components/Cart/Checkout.module.css";
-import * as validationRules from "./inputValidationRules";
+import * as rules from "./inputValidationRules";
 
 export const checkoutForm = {
   firstName: {
     inputName: "firstName",
     props: {
-      className: styles.left,
+      className: "",
       label: "First name",
       input: {
         id: "first-name",
@@ -16,12 +15,12 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("First name")],
+    validation: [rules.createRequiredRule("First name")],
   },
   lastName: {
     inputName: "lastName",
     props: {
-      className: styles.right,
+      className: "",
       label: "Last name",
       input: {
         id: "last-name",
@@ -32,7 +31,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("Last name")],
+    validation: [rules.createRequiredRule("Last name")],
   },
   addressLine1: {
     inputName: "addressLine1",
@@ -48,7 +47,7 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("Address")],
+    validation: [rules.createRequiredRule("Address")],
   },
   addressLine2: {
     inputName: "addressLine2",
@@ -64,12 +63,12 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [],
+    validation: [],
   },
   city: {
     inputName: "city",
     props: {
-      className: styles.left,
+      className: "",
       label: "City",
       input: {
         id: "city",
@@ -80,12 +79,12 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("City")],
+    validation: [rules.createRequiredRule("City")],
   },
   state: {
     inputName: "state",
     props: {
-      className: styles.right,
+      className: "",
       label: "State",
       input: {
         id: "state",
@@ -96,12 +95,12 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("State")],
+    validation: [rules.createRequiredRule("State")],
   },
   zipCode: {
     inputName: "zipCode",
     props: {
-      className: styles.left,
+      className: "",
       label: "Zip code",
       input: {
         id: "zip-code",
@@ -112,12 +111,12 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [validationRules.createRequiredRule("Zip code")],
+    validation: [rules.createRequiredRule("Zip code")],
   },
   phone: {
     inputName: "phone",
     props: {
-      className: styles.left,
+      className: "",
       label: "Phone",
       input: {
         id: "phone",
@@ -128,15 +127,15 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [
-      validationRules.createRequiredRule("Phone number"),
-      validationRules.createPhoneRule("Phone number"),
+    validation: [
+      rules.createRequiredRule("Phone number"),
+      rules.createPhoneRule("Phone number"),
     ],
   },
   email: {
     inputName: "email",
     props: {
-      className: styles.right,
+      className: "",
       label: "Email",
       input: {
         id: "email",
@@ -147,9 +146,9 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validationRules: [
-      validationRules.createRequiredRule("Email"),
-      validationRules.createEmailRule("Email"),
+    validation: [
+      rules.createRequiredRule("Email"),
+      rules.createEmailRule("Email"),
     ],
   },
 };

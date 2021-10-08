@@ -1,5 +1,4 @@
 .delivery-form {
-  margin-top: 1em;
   display: grid;
   grid-template-columns:
     [left-start] 1fr
@@ -7,6 +6,7 @@
     [right-end];
   grid-auto-rows: auto;
   grid-gap: 1em 1em;
+  margin-top: 1em;
 }
 
 div {
@@ -16,11 +16,16 @@ div {
 }
 
 @media (min-width: 28em) {
-  .left {
+  div:nth-child(1),
+  div:nth-child(5),
+  div:nth-child(7),
+  div:nth-child(8) {
     grid-column: left;
   }
 
-  .right {
+  div:nth-child(2),
+  div:nth-child(6),
+  div:nth-child(9) {
     grid-column: right;
   }
 }
