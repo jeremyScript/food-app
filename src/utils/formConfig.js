@@ -53,7 +53,7 @@ export const checkoutForm = {
     inputName: "addressLine2",
     props: {
       className: "",
-      label: "Address line 2",
+      label: "Address line 2 (Optional)",
       input: {
         id: "address-line-2",
         type: "text",
@@ -122,6 +122,7 @@ export const checkoutForm = {
         id: "phone",
         type: "text",
         value: "",
+        placeholder: "e.g., 000-000-0000",
       },
     },
     errorMessage: "",
