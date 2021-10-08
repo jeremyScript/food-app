@@ -41,6 +41,7 @@ input,
 select {
   display: block;
   width: 100%;
+  font-size: 0.85rem;
   margin-top: 0.25em;
   padding: 0.5em;
   color: #333;
@@ -49,14 +50,13 @@ select {
   outline: none;
 }
 
+div > select {
+  padding: 0.41em;
+}
+
 input:focus,
 select:focus {
   border: 1px solid #aaa;
-}
-
-select {
-  width: 100%;
-  text-transform: uppercase;
 }
 
 .actions {

@@ -10,7 +10,12 @@ const Select = (props) => {
   return (
     <div className={`${styles.select} ${props.className}`}>
       <label htmlFor={props.select.id}>{props.label}</label>
-      <select {...props.select}>{options}</select>
+      <select {...props.select}>
+        <option className={styles.placeholder} value="" disabled hidden>
+          {props.select.placeholder}
+        </option>
+        {options}
+      </select>
       {props.isTouched && props.isValid === false && (
         <span className={styles.error}>{props.errorMessage}</span>
       )}
