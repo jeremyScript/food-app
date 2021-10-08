@@ -4,13 +4,13 @@ import { checkoutForm } from "../../utils/formConfig";
 import useForm from "../../hooks/useForm";
 
 const Checkout = (props) => {
+  const [renderFormInputs, isFormValid] = useForm(checkoutForm);
+
   const handleOrderSubmit = (event) => {
     event.preventDefault();
     if (!isFormValid) return;
     console.log("submitted");
   };
-
-  const [renderFormInputs, isFormValid] = useForm(checkoutForm);
 
   return (
     <form className={styles["delivery-form"]} onSubmit={handleOrderSubmit}>
