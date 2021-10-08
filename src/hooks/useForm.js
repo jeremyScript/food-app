@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../components/UI/Input";
+import Select from "../components/UI/Select";
 
 const useForm = (formObj) => {
   const [formState, setFormState] = useState(formObj);
@@ -26,23 +27,40 @@ const useForm = (formObj) => {
 
   const renderFormInputs = () => {
     return Object.values(formState).map(
-      ({ inputName, isValid, isTouched, errorMessage, props }) => (
-        <Input
-          key={props.label}
-          className={`${props.className}`}
-          label={props.label}
-          isTouched={isTouched}
-          isValid={isValid}
-          errorMessage={errorMessage}
-          input={{
-            ...props.input,
-            name: inputName,
-            value: formState[inputName].props.input.value,
-            onChange: handleChange,
-            onBlur: handleBlur,
-          }}
-        />
-      )
+      ({ inputName, inputType, isValid, isTouched, errorMessage, props }) =>
+        inputType === "select" ? (
+          <Select
+            key={props.label}
+            className={`${props.className}`}
+            label={props.label}
+            isTouched={isTouched}
+            isValid={isValid}
+            errorMessage={errorMessage}
+            select={{
+              ...props.input,
+              name: inputName,
+              value: formState[inputName].props.input.value,
+              onChange: handleChange,
+              onBlur: handleBlur,
+            }}
+          />
+        ) : (
+          <Input
+            key={props.label}
+            className={`${props.className}`}
+            label={props.label}
+            isTouched={isTouched}
+            isValid={isValid}
+            errorMessage={errorMessage}
+            input={{
+              ...props.input,
+              name: inputName,
+              value: formState[inputName].props.input.value,
+              onChange: handleChange,
+              onBlur: handleBlur,
+            }}
+          />
+        )
     );
   };
 

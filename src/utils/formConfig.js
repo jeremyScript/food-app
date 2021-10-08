@@ -1,4 +1,5 @@
 import * as rules from "./inputValidationRules";
+import { states } from "./states";
 
 export const checkoutForm = {
   firstName: {
@@ -83,13 +84,15 @@ export const checkoutForm = {
   },
   state: {
     inputName: "state",
+    inputType: "select",
     props: {
       className: "",
       label: "State",
       input: {
         id: "state",
-        type: "text",
         value: "",
+        placeholder: "Select state",
+        options: states,
       },
     },
     errorMessage: "",
