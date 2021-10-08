@@ -1,9 +1,8 @@
 import { useState } from "react";
-
 import Input from "../components/UI/Input";
 
-const useForm = (formObject) => {
-  const [formState, setFormState] = useState(formObject);
+const useForm = (formObj) => {
+  const [formState, setFormState] = useState(formObj);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -36,9 +35,8 @@ const useForm = (formObject) => {
           isValid={isValid}
           errorMessage={errorMessage}
           input={{
-            id: props.input.id,
+            ...props.input,
             name: inputName,
-            type: props.input.type,
             value: formState[inputName].props.input.value,
             onChange: handleChange,
             onBlur: handleBlur,
@@ -49,7 +47,7 @@ const useForm = (formObject) => {
   };
 
   const validateInput = (inputObj) => {
-    for (let rule of inputObj.validationRules) {
+    for (let rule of inputObj.validation) {
       if (!rule.validate(inputObj.props.input.value)) {
         inputObj.isValid = false;
         inputObj.errorMessage = rule.errorMessage;
