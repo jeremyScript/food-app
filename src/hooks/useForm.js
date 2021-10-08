@@ -11,7 +11,6 @@ const useForm = (formObj) => {
     setFormState((prevState) => {
       const inputObj = { ...prevState[name] };
       inputObj.props.input.value = value;
-      inputObj.isTouched = true;
       return { ...formState, [name]: validateInput(inputObj) };
     });
   };
