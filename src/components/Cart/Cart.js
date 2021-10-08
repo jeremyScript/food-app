@@ -13,13 +13,15 @@ const Cart = (props) => {
   const hasItems = cartContext.items.length > 0;
 
   const handleCloseCartClick = (event) => {
-    event.preventDefault();
     props.onHideCart();
   };
 
-  const handleOrderClick = (event) => {
-    event.preventDefault();
+  const handleCheckoutClick = (event) => {
     setShowCheckout(true);
+  };
+
+  const handleOrderSubmit = (deliveryData) => {
+    console.log(deliveryData);
   };
 
   const cartItems = (
@@ -45,8 +47,11 @@ const Cart = (props) => {
         Close
       </button>
       {hasItems && (
-        <button className={styles["button--order"]} onClick={handleOrderClick}>
-          Order
+        <button
+          className={styles["button--order"]}
+          onClick={handleCheckoutClick}
+        >
+          Checkout
         </button>
       )}
     </div>
@@ -65,7 +70,12 @@ const Cart = (props) => {
             <span>Total Amount: </span>
             <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
           </div>
-          {showCheckout && <Checkout onHideCart={handleCloseCartClick} />}
+          {showCheckout && (
+            <Checkout
+              onHideCart={handleCloseCartClick}
+              onSubmitOrder={handleOrderSubmit}
+            />
+          )}
           {!showCheckout && cartActions}
         </div>
       </div>

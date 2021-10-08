@@ -80,7 +80,15 @@ const useForm = (formObj) => {
     (input) => input.isValid === true
   );
 
-  return [renderFormInputs, isFormValid];
+  const formData = {};
+
+  if (isFormValid) {
+    Object.values(formState).forEach((input) => {
+      formData[input.inputName] = input.props.input.value;
+    });
+  }
+
+  return [renderFormInputs, isFormValid, formData];
 };
 
 export default useForm;
