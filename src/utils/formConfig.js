@@ -61,7 +61,7 @@ export const checkoutForm = {
       },
     },
     errorMessage: "",
-    isValid: null,
+    isValid: true,
     isTouched: false,
     validation: [],
   },
@@ -111,7 +111,10 @@ export const checkoutForm = {
     errorMessage: "",
     isValid: null,
     isTouched: false,
-    validation: [rules.createRequiredRule("Zip code")],
+    validation: [
+      rules.createRequiredRule("Zip code"),
+      rules.createZipCodeRule("Zip code"),
+    ],
   },
   phone: {
     inputName: "phone",

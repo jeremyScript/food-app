@@ -42,3 +42,11 @@ export const createEmailRule = (inputName) => {
     validate: (inputValue) => regex.test(inputValue),
   };
 };
+
+export const createZipCodeRule = (inputName) => {
+  const regex = /^\d{5}(?:[-\s]\d{4})?$/;
+  return {
+    errorMessage: `${inputName} entered is not valid`,
+    validate: (inputValue) => regex.test(inputValue),
+  };
+};
