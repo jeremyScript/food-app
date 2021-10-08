@@ -1,5 +1,5 @@
 import * as rules from "./inputValidationRules";
-import { states } from "./states";
+import { fullStates } from "./states";
 
 export const checkoutForm = {
   firstName: {
@@ -92,7 +92,7 @@ export const checkoutForm = {
         id: "state",
         value: "",
         placeholder: "Select state",
-        options: states,
+        options: fullStates,
       },
     },
     errorMessage: "",
