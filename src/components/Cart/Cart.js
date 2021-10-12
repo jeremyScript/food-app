@@ -43,7 +43,7 @@ const Cart = (props) => {
         }
       );
 
-      if (response.ok) {
+      if (!response.ok) {
         throw new Error("Something went wrong!");
       }
     } catch (error) {
