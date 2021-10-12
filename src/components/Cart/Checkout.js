@@ -9,7 +9,9 @@ const Checkout = (props) => {
 
   const handleOrderSubmit = (event) => {
     event.preventDefault();
+
     validateAll();
+
     if (!isFormValid) return;
     props.onSubmitOrder(deliveryData);
   };

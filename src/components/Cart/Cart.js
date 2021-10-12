@@ -2,12 +2,16 @@ import { useContext, useState } from "react";
 import CartContext from "../../store/cartContext";
 
 import Modal from "../UI/Modal";
+import Card from "../UI/Card";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import Checkout from "./Checkout";
 
 const Cart = (props) => {
+  const [isOrderSubmitting, setIsOrderSubmitting] = useState(false);
+  const [didOrderSubmit, setDidOrderSubmit] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+
   const cartContext = useContext(CartContext);
 
   const hasItems = cartContext.items.length > 0;
@@ -21,6 +25,8 @@ const Cart = (props) => {
   };
 
   const handleOrderSubmit = async (deliveryData) => {
+    setIsOrderSubmitting(true);
+
     const deliveryInfo = { ...deliveryData };
 
     try {
@@ -41,6 +47,9 @@ const Cart = (props) => {
     } catch (error) {
       console.log("error", error);
     }
+
+    setIsOrderSubmitting(false);
+    setDidOrderSubmit(true);
   };
 
   const cartItems = (
@@ -76,28 +85,50 @@ const Cart = (props) => {
     </div>
   );
 
+  const modalContent = (
+    <div className={styles.cart}>
+      {hasItems ? (
+        cartItems
+      ) : (
+        <p className={styles["cart-empty"]}>Your cart is empty</p>
+      )}
+      <div className={styles["cart-bottom"]}>
+        <div className={styles.total}>
+          <span>Total Amount: </span>
+          <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
+        </div>
+        {showCheckout && (
+          <Checkout
+            onHideCart={handleCloseCartClick}
+            onSubmitOrder={handleOrderSubmit}
+          />
+        )}
+        {!showCheckout && cartActions}
+      </div>
+    </div>
+  );
+
+  const modalContentIsSubmitting = <Card>Sending order data...</Card>;
+
+  const modalContentDidSubmit = (
+    <Card>
+      <p>Order sent successfully!</p>
+      <div className={styles.actions}>
+        <button
+          className={styles["button--close"]}
+          onClick={handleCloseCartClick}
+        >
+          Close
+        </button>
+      </div>
+    </Card>
+  );
+
   return (
     <Modal onBackdropClick={handleCloseCartClick}>
-      <div className={styles.cart}>
-        {hasItems ? (
-          cartItems
-        ) : (
-          <p className={styles["cart-empty"]}>Your cart is empty</p>
-        )}
-        <div className={styles["cart-bottom"]}>
-          <div className={styles.total}>
-            <span>Total Amount: </span>
-            <span>${Math.abs(cartContext.totalAmount.toFixed(2))}</span>
-          </div>
-          {showCheckout && (
-            <Checkout
-              onHideCart={handleCloseCartClick}
-              onSubmitOrder={handleOrderSubmit}
-            />
-          )}
-          {!showCheckout && cartActions}
-        </div>
-      </div>
+      {isOrderSubmitting && modalContentIsSubmitting}
+      {!isOrderSubmitting && !didOrderSubmit && modalContent}
+      {didOrderSubmit && modalContentDidSubmit}
     </Modal>
   );
 };
