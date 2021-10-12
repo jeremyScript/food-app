@@ -20,8 +20,27 @@ const Cart = (props) => {
     setShowCheckout(true);
   };
 
-  const handleOrderSubmit = (deliveryData) => {
-    console.log(deliveryData);
+  const handleOrderSubmit = async (deliveryData) => {
+    const deliveryInfo = { ...deliveryData };
+
+    try {
+      const response = await fetch(
+        "https://food-app-6dd5d-default-rtdb.firebaseio.com/orders.json",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            user: deliveryInfo,
+            orderedItems: cartContext.items,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   const cartItems = (
