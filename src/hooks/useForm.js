@@ -79,7 +79,7 @@ const useForm = (formObj) => {
     setFormState((prevState) => {
       const stateCopy = { ...prevState };
       Object.values(stateCopy).forEach((inputObj) => {
-        if (inputObj.isValid === null) {
+        if (!inputObj.isValid) {
           stateCopy[inputObj.inputName] = {
             ...validateInput(inputObj),
             isTouched: true,
@@ -102,7 +102,13 @@ const useForm = (formObj) => {
     });
   }
 
-  return [renderFormInputs, isFormValid, validateAll, formData];
+  const clearAll = () => {
+    Object.keys(formState).forEach((inputName) => {
+      formState[inputName].props.input.value = "";
+    });
+  };
+
+  return [renderFormInputs, isFormValid, validateAll, clearAll, formData];
 };
 
 export default useForm;

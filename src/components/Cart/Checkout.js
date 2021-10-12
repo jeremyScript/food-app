@@ -4,7 +4,7 @@ import { checkoutForm } from "../../utils/formConfig";
 import useForm from "../../hooks/useForm";
 
 const Checkout = (props) => {
-  const [renderFormInputs, isFormValid, validateAll, deliveryData] =
+  const [renderFormInputs, isFormValid, validateAll, clearAll, deliveryData] =
     useForm(checkoutForm);
 
   const handleOrderSubmit = (event) => {
@@ -13,7 +13,9 @@ const Checkout = (props) => {
     validateAll();
 
     if (!isFormValid) return;
+
     props.onSubmitOrder(deliveryData);
+    clearAll();
   };
 
   return (

@@ -10,6 +10,7 @@ import Checkout from "./Checkout";
 const Cart = (props) => {
   const [isOrderSubmitting, setIsOrderSubmitting] = useState(false);
   const [didOrderSubmit, setDidOrderSubmit] = useState(false);
+  const [httpError, setHttpError] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
 
   const cartContext = useContext(CartContext);
@@ -25,6 +26,7 @@ const Cart = (props) => {
   };
 
   const handleOrderSubmit = async (deliveryData) => {
+    setHttpError(false);
     setIsOrderSubmitting(true);
 
     const deliveryInfo = { ...deliveryData };
@@ -41,16 +43,21 @@ const Cart = (props) => {
         }
       );
 
-      if (!response.ok) {
+      if (response.ok) {
         throw new Error("Something went wrong!");
       }
     } catch (error) {
       console.log("error", error);
+      setHttpError(true);
     }
 
     setIsOrderSubmitting(false);
     setDidOrderSubmit(true);
   };
+
+  if (!httpError && didOrderSubmit) {
+    cartContext.clearCart();
+  }
 
   const cartItems = (
     <ul className={styles["cart-top"]}>
@@ -99,6 +106,7 @@ const Cart = (props) => {
         </div>
         {showCheckout && (
           <Checkout
+            didOrderSubmit={didOrderSubmit}
             onHideCart={handleCloseCartClick}
             onSubmitOrder={handleOrderSubmit}
           />
@@ -124,11 +132,26 @@ const Cart = (props) => {
     </Card>
   );
 
+  const modalContentHttpError = (
+    <Card>
+      <p>Something went wrong! Please try again later.</p>
+      <div className={styles.actions}>
+        <button
+          className={styles["button--close"]}
+          onClick={handleCloseCartClick}
+        >
+          Close
+        </button>
+      </div>
+    </Card>
+  );
+
   return (
     <Modal onBackdropClick={handleCloseCartClick}>
       {isOrderSubmitting && modalContentIsSubmitting}
       {!isOrderSubmitting && !didOrderSubmit && modalContent}
-      {didOrderSubmit && modalContentDidSubmit}
+      {didOrderSubmit && !httpError && modalContentDidSubmit}
+      {didOrderSubmit && httpError && modalContentHttpError}
     </Modal>
   );
 };
