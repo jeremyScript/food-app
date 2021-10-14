@@ -22,8 +22,14 @@ const useForm = (formObj) => {
 
   const handleBlur = (event) => {
     const { name } = event.target;
-    const inputObj = { ...formState[name] };
-    inputObj.isTouched = true;
+    const inputObj = {
+      ...formState[name],
+      isTouched: true,
+      props: {
+        ...formState[name].props,
+        input: { ...formState[name].props.input },
+      },
+    };
     setFormState({ ...formState, [name]: validateInput(inputObj) });
   };
 
@@ -67,7 +73,10 @@ const useForm = (formObj) => {
   };
 
   const validateInput = (inputObj) => {
-    const inputObjCopy = { ...inputObj };
+    const inputObjCopy = {
+      ...inputObj,
+      props: { ...inputObj.props, input: { ...inputObj.props.input } },
+    };
     for (let rule of inputObj.validation) {
       if (!rule.validate(inputObj.props.input.value)) {
         inputObjCopy.isValid = false;
