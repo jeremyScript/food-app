@@ -9,8 +9,13 @@ const useForm = (formObj) => {
     const { name, value } = event.target;
 
     setFormState((prevState) => {
-      const inputObj = { ...prevState[name] };
-      inputObj.props.input.value = value;
+      const inputObj = {
+        ...prevState[name],
+        props: {
+          ...prevState[name].props,
+          input: { ...prevState[name].props.input, value: value },
+        },
+      };
       return { ...formState, [name]: validateInput(inputObj) };
     });
   };
