@@ -91,7 +91,10 @@ const useForm = (formObj) => {
 
   const validateAll = () => {
     setFormState((prevState) => {
-      const stateCopy = { ...prevState };
+      const stateCopy = {
+        ...prevState,
+        props: { ...prevState.props, input: { ...prevState.props.input } },
+      };
       Object.values(stateCopy).forEach((inputObj) => {
         if (!inputObj.isValid) {
           stateCopy[inputObj.inputName] = {
